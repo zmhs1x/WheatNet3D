@@ -62,7 +62,7 @@ class LocalSpatialEncoding(nn.Module):
             fused = torch.cat([grouped_features, relative_xyz, distance], dim=1)
         return fused
 
-class PointNeXtBlock(nn.Module):
+class WheatNeXtBlock(nn.Module):
     def __init__(self,
                  in_channels,
                  out_channels,
@@ -117,7 +117,7 @@ class PointNeXtBlock(nn.Module):
         x = self.out_proj(x)
         new_features = torch.max(x, dim=-1)[0]
         return new_xyz, new_features, fps_idx
-class PointNeXtBackbone(nn.Module):
+class WheatNeXtBackbone(nn.Module):
     def __init__(self, input_feature_dim=0, radius_scale=1.0):
         super().__init__()
         r1 = 0.15 * radius_scale
@@ -125,7 +125,7 @@ class PointNeXtBackbone(nn.Module):
         r3 = 0.10 * radius_scale
         r4 = 0.40 * radius_scale
 
-        self.sa1 = PointNeXtBlock(
+        self.sa1 = WheatNeXtBlock(
             in_channels=input_feature_dim,
             out_channels=128,
             npoint=1024,
@@ -133,7 +133,7 @@ class PointNeXtBackbone(nn.Module):
             nsample=48,
             depth=3
         )
-        self.sa2 = PointNeXtBlock(
+        self.sa2 = WheatNeXtBlock(
             in_channels=128,
             out_channels=256,
             npoint=512,
@@ -141,7 +141,7 @@ class PointNeXtBackbone(nn.Module):
             nsample=32,
             depth=3
         )
-        self.sa3 = PointNeXtBlock(
+        self.sa3 = WheatNeXtBlock(
             in_channels=256,
             out_channels=256,
             npoint=256,
@@ -149,7 +149,7 @@ class PointNeXtBackbone(nn.Module):
             nsample=32,
             depth=3
         )
-        self.sa4 = PointNeXtBlock(
+        self.sa4 = WheatNeXtBlock(
             in_channels=256,
             out_channels=256,
             npoint=128,
