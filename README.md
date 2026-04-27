@@ -10,6 +10,8 @@ The following components of the model are provided:
 * Voting-based Center Localization Module
 * 3D Bounding Box Prediction Head
 
+![Overall architecture of WheatNet3D](figures/wheatnet3d_architecture.jpg)
+
 ## 📦 Example Data
 
 A representative sample of the dataset is provided in the `example_data/` directory, including:
@@ -18,7 +20,3 @@ A representative sample of the dataset is provided in the `example_data/` direct
 * Its corresponding annotation file (`.txt`, KITTI format)
 
 These files are intended to illustrate the data format and annotation scheme used in this study.
-
-## Model Overview
-
-![Overall architecture of WheatNet3D](figures/wheatnet3d_architecture.jpg)
