@@ -19,3 +19,21 @@ A representative sample of the dataset is provided in the `example_data/` direct
 * Its corresponding annotation file (`.txt`, KITTI format)
 
 These files are intended to illustrate the data format and annotation scheme used in this study.
+
+
+## 📁 Repository Structure
+
+```text
+WheatNet3D/
+├── example_data/
+│   ├── sample.ply          # Example wheat seedling point cloud
+│   └── sample.txt          # Example annotation or label file
+│
+├── models/
+│   ├── Voting_module.py    # Voting-based Center Localization Module
+│   ├── WheatNext_backbone.py # WheatNeXt Backbone
+│   └── bbox_head.py        # 3D Bounding Box Prediction Head
+│
+├── .gitignore
+├── LICENSE
+└── README.md
